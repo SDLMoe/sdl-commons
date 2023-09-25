@@ -1,8 +1,41 @@
 # sdl-commons
 
+[![Kotlin](https://img.shields.io/badge/kotlin-1.9.10-%237F52FF.svg?style=flat-square&logo=kotlin&logoColor=white)](http://kotlinlang.org)
+![Gradle](https://img.shields.io/badge/Gradle-8.3.0-02303A.svg?style=flat-square&logo=Gradle&logoColor=white)
+[![GitHub License](https://img.shields.io/badge/License-Apache%20License%202.0-blue.svg?style=flat-square)](http://www.apache.org/licenses/LICENSE-2.0)
+
 SDL's common libraries for Kotlin development.
 
-WIP
+## Usage
+
+[![Maven Central](https://img.shields.io/maven-central/v/moe.sdl.commons/commons-all.svg?style=flat-square)](https://central.sonatype.com/search?q=g%3Amoe.sdl.commons&smo=true)
+
+Edit `build.gradle.kts` like so, replace `<latest-version>` with the latest version (see the badge above):
+
+```kotlin
+dependencies {
+  // BOM for aligning versions to prevent potential problems
+  implementation(platform("moe.sdl.commons:commons-bom:<latest-version>"))
+  //             ^ this is important, please don't forget to call
+  // see: https://docs.gradle.org/current/userguide/platforms.html
+
+  // Add a certain module, see modules below 
+  implementation("moe.sdl.commons:commons-event")
+
+  // Or simply, add all modules as dependencies
+  implementation(platform("moe.sdl.commons:commons-all"))
+}
+```
+
+## Modules
+
+| Module                   | Description                                                  |
+|--------------------------|--------------------------------------------------------------|
+| `commons-bom`            | Special module, BOM, apply version constraints               |
+| `commons-all`            | Special module, add all modules as dependencies              |
+| `commons-coroutines`     | Extensions of `kotlinx.coroutines`, e.g. `ModuleScope`       |
+| `commons-event`          | Event System and State Machine based on `kotlinx.coroutines` |
+| `commons-logger-logback` | Extensions of Logback, e.g. `PatternLayoutNoLambda`          |
 
 ## License
 
