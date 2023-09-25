@@ -1,0 +1,33 @@
+[versions]
+exposed = "0.43.0"
+junit = "5.10.0"
+kotlin = "1.9.10"
+coroutines = "1.7.3"
+ktlint = "0.50.0"
+org-slf4j = "2.0.9"
+
+[plugins]
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+spotless = "com.diffplug.spotless:6.21.0"
+
+[libraries]
+gradle-catalog-update = "nl.littlerobots.vcu:plugin:0.8.1"
+gradle-versions = "com.github.ben-manes:gradle-versions-plugin:0.47.0"
+gradle-licensee = "app.cash.licensee:licensee-gradle-plugin:1.7.0"
+gradle-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+junit-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+junit-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+logback = "ch.qos.logback:logback-classic:1.4.11"
+slf4j = { module = "org.slf4j:slf4j-api", version.ref = "org-slf4j" }
+
+[bundles]
+test-junit = [
+    "junit-api",
+    "junit-engine",
+    "kotlin-test",
+    "kotlinx-coroutines-test"
+]
