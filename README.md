@@ -6,6 +6,8 @@
 
 SDL's common libraries for Kotlin development.
 
+This library requires Java 17+ and Kotlin 1.9+. 
+
 ## Usage
 
 [![Maven Central](https://img.shields.io/maven-central/v/moe.sdl.commons/commons-all.svg?style=flat-square)](https://central.sonatype.com/search?q=g%3Amoe.sdl.commons&smo=true)
