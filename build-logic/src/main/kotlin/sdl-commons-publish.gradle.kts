@@ -63,6 +63,12 @@ publishing {
           }
         }
 
+        developers {
+          developer {
+            name = "Colerar"
+          }
+        }
+
         scm {
           connection.set("scm:git:git://github.com/SDLMoe/sdl-commons.git")
           developerConnection.set("scm:git:ssh://github.com/SDLMoe/sdl-commons.git")
@@ -82,6 +88,10 @@ publishing {
           username = getExtraString("ossrhUsername")
           password = getExtraString("ossrhPassword")
         }
+      }
+      maven {
+        name = "test"
+        url = rootProject.layout.buildDirectory.dir("testRepo").get().asFile.toURI()
       }
     }
   }
