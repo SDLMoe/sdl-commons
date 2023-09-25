@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 
-internal val logger = LoggerFactory.getLogger("bolide.utils.ModuleScope")
+internal val logger = LoggerFactory.getLogger(ModuleScope::class.java)
 
 typealias ExceptionHandler = (ctx: CoroutineContext, e: Throwable, logger: Logger, moduleName: String) -> Unit
 

@@ -4,5 +4,5 @@ plugins {
 }
 
 dependencies {
-  implementation(libs.logback)
+  compileOnly(libs.logback)
 }

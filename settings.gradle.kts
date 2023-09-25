@@ -4,6 +4,8 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "sdl-commons"
 
 include(
+  ":all",
+  ":bom",
   ":coroutines",
   ":event",
   ":logger-logback",
