@@ -11,6 +11,7 @@ val libs = the<LibrariesForLibs>()
 
 dependencies {
   testImplementation(libs.bundles.test.junit)
+  testImplementation(libs.logback)
   testImplementation(project(":logger-logback"))
 }
 

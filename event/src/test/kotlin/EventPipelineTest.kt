@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicInteger
 
-@ExperimentalCoroutinesApi
 class EventPipelineTest {
   class TestEvent1 : Event()
   class TestEvent2 : Event()
@@ -22,7 +21,9 @@ class EventPipelineTest {
     events.register {
       boolean.set(true)
     }
+    delay(30)
     events.broadcast(TestEvent1())
+    delay(30)
     assert(boolean.get())
   }
 

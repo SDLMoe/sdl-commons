@@ -28,7 +28,7 @@ jobs:
     uses: SDLMoe/.github/.github/workflows/pre_ci.yml@master
 
   check:
-    name: Check Formatting
+    name: Format and Test
     needs: pre_ci
     if: needs.pre_ci.outputs.continue
     runs-on: ubuntu-latest
