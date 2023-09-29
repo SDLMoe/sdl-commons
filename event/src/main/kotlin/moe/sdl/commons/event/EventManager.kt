@@ -58,9 +58,7 @@ class EventManager(
    * @param priority optional, set the priority of this listener
    * @return [Flow]
    */
-  fun flow(
-    priority: EventPriority = EventPriority.NORMAL,
-  ): Flow<Event> {
+  fun flow(priority: EventPriority = EventPriority.NORMAL): Flow<Event> {
     return flowListeners.first { it.priority == priority }.channel.receiveAsFlow()
   }
 
@@ -74,10 +72,7 @@ class EventManager(
    * @param priority optional, set the priority of this listener
    * @param listener lambda block of your listener with the all event of parameter
    */
-  fun register(
-    priority: EventPriority = EventPriority.NORMAL,
-    listener: suspend (Event) -> Unit,
-  ) {
+  fun register(priority: EventPriority = EventPriority.NORMAL, listener: suspend (Event) -> Unit) {
     listeners.first { it.priority == priority }.listeners.add(listener)
   }
 
@@ -91,10 +86,7 @@ class EventManager(
    * @param priority optional, set the priority of this listener
    * @param listener lambda block of your listener with all type of event of parameter
    */
-  fun registerBlocking(
-    priority: EventPriority = EventPriority.NORMAL,
-    listener: suspend (Event) -> Unit,
-  ) {
+  fun registerBlocking(priority: EventPriority = EventPriority.NORMAL, listener: suspend (Event) -> Unit) {
     blockingListeners.first { it.priority == priority }.listeners.add(listener)
   }
 
@@ -162,9 +154,8 @@ class EventManager(
  * @param priority the priority of this listener
  * @return [Event] return a captured event
  */
-suspend inline fun <reified T : Event> EventManager.nextEvent(
-  priority: EventPriority = EventPriority.NORMAL,
-): Event? = flow(priority).firstOrNull { it is T }
+suspend inline fun <reified T : Event> EventManager.nextEvent(priority: EventPriority = EventPriority.NORMAL): Event? =
+  flow(priority).firstOrNull { it is T }
 
 /**
  * Register a parallel listener to capture
@@ -227,10 +218,8 @@ inline fun <reified T : Event> EventManager.registerBlocking(
  *
  * @param ifNotCancel lambda block with the action if broadcast event has **NOT** been cancelled
  */
-suspend inline fun <T : Event, R> T.broadcast(
-  manager: EventManager,
-  noinline ifNotCancel: suspend (T) -> R,
-): R? = if (!manager.broadcast(this)) ifNotCancel(this) else null
+suspend inline fun <T : Event, R> T.broadcast(manager: EventManager, noinline ifNotCancel: suspend (T) -> R): R? =
+  if (!manager.broadcast(this)) ifNotCancel(this) else null
 
 /**
  * Broadcast event in a quick way
@@ -264,6 +253,4 @@ suspend inline fun <T : Event, R> T.broadcast(
 /**
  * Broadcast event in quick way
  */
-suspend inline fun <T : Event> T.broadcast(
-  manager: EventManager,
-): Boolean = manager.broadcast(this)
+suspend inline fun <T : Event> T.broadcast(manager: EventManager): Boolean = manager.broadcast(this)

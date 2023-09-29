@@ -86,8 +86,7 @@ open class StateController<S, I : WithState<S>, C>(
   /**
    * Get current enum state
    */
-  fun getCurrentState(): S =
-    currentState.get().state
+  fun getCurrentState(): S = currentState.get().state
 
   /**
    * Get current instance state
@@ -232,8 +231,7 @@ class InitStateController<S : Enum<*>, I : WithState<S>, C>(
    * @see interceptStateChange
    * @param afterState transfer to this state, enum type [S]
    */
-  suspend fun setState(afterState: S): I =
-    setState(states.first { it.state == afterState })
+  suspend fun setState(afterState: S): I = setState(states.first { it.state == afterState })
 }
 
 /**
@@ -247,11 +245,10 @@ class InitStateController<S : Enum<*>, I : WithState<S>, C>(
  * @see StateController.setState
  */
 @Suppress("NOTHING_TO_INLINE")
-inline fun <S : Enum<*>, I : WithState<S>, C>
-  StateController<S, I, C>.observe(
-    listenerState: ListenerState = ListenerState.BEFORE_UPDATE,
-    noinline observer: suspend C.() -> Unit,
-  ): Unit = observeStateChange(listenerState) { _, _ -> this.observer() }
+inline fun <S : Enum<*>, I : WithState<S>, C> StateController<S, I, C>.observe(
+  listenerState: ListenerState = ListenerState.BEFORE_UPDATE,
+  noinline observer: suspend C.() -> Unit,
+): Unit = observeStateChange(listenerState) { _, _ -> this.observer() }
 
 /**
  * Quick way of [StateController.interceptStateChange]
@@ -264,11 +261,10 @@ inline fun <S : Enum<*>, I : WithState<S>, C>
  * @see StateController.setState
  */
 @Suppress("NOTHING_TO_INLINE")
-inline fun <S : Enum<*>, I : WithState<S>, C>
-  StateController<S, I, C>.intercept(
-    listenerState: ListenerState = ListenerState.BEFORE_UPDATE,
-    noinline interceptor: suspend C.() -> Boolean,
-  ): Unit = interceptStateChange(listenerState) { _, _ -> this.interceptor() }
+inline fun <S : Enum<*>, I : WithState<S>, C> StateController<S, I, C>.intercept(
+  listenerState: ListenerState = ListenerState.BEFORE_UPDATE,
+  noinline interceptor: suspend C.() -> Boolean,
+): Unit = interceptStateChange(listenerState) { _, _ -> this.interceptor() }
 
 /**
  * Quick way of [StateController.interceptStateChange]
@@ -283,11 +279,10 @@ inline fun <S : Enum<*>, I : WithState<S>, C>
  * @see StateController.setState
  */
 @Suppress("NOTHING_TO_INLINE")
-inline fun <S : Enum<*>, I : WithState<S>, C>
-  StateController<S, I, C>.block(
-    listenerState: ListenerState = ListenerState.BEFORE_UPDATE,
-    noinline block: suspend C.() -> Unit,
-  ): Unit = interceptStateChange(listenerState) { _, _ ->
+inline fun <S : Enum<*>, I : WithState<S>, C> StateController<S, I, C>.block(
+  listenerState: ListenerState = ListenerState.BEFORE_UPDATE,
+  noinline block: suspend C.() -> Unit,
+): Unit = interceptStateChange(listenerState) { _, _ ->
   block()
   false
 }

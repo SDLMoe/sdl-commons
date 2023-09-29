@@ -2,13 +2,13 @@
 coroutines = "1.7.3"
 junit = "5.10.0"
 kotlin = "1.9.10"
-ktlint = "0.50.0"
+ktlint = "1.0.0"
 slf4j = "2.0.9"
 
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-spotless = "com.diffplug.spotless:6.21.0"
+spotless = "com.diffplug.spotless:6.22.0"
 
 [libraries]
 gradle-catalog-update = "nl.littlerobots.vcu:plugin:0.8.1"

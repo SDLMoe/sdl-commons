@@ -67,5 +67,9 @@ abstract class CancellableEvent : Event() {
  * @see [EventManager.broadcast]
  */
 enum class EventPriority {
-  HIGHEST, HIGH, NORMAL, LOW, LOWEST
+  HIGHEST,
+  HIGH,
+  NORMAL,
+  LOW,
+  LOWEST,
 }
