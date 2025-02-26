@@ -15,6 +15,7 @@ gradle-catalog-update = "nl.littlerobots.vcu:plugin:0.8.1"
 gradle-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 gradle-licensee = "app.cash.licensee:licensee-gradle-plugin:1.7.0"
 gradle-versions = "com.github.ben-manes:gradle-versions-plugin:0.47.0"
+gradle-publish = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin:0.30.0"
 junit-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
 junit-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
