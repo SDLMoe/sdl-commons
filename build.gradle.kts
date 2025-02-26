@@ -41,7 +41,7 @@ spotless {
 
   kotlin {
     target("**/*.kt")
-    indentWithSpaces(2)
+    leadingTabsToSpaces(2)
     excludes()
     common()
     ktlint(libs.versions.ktlint.get()).editorConfigOverride(ktlintConfig)
@@ -49,7 +49,7 @@ spotless {
 
   kotlinGradle {
     target("**/*.gradle.kts")
-    indentWithSpaces(2)
+    leadingTabsToSpaces(2)
     excludes()
     common()
     ktlint(libs.versions.ktlint.get()).editorConfigOverride(ktlintConfig)
