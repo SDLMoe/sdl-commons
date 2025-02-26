@@ -7,7 +7,7 @@
 
 SDL's common libraries for Kotlin development.
 
-This library requires Java 17+ and Kotlin 1.9+.
+This library requires Java 21+ and Kotlin 2.1+.
 
 ## Usage
 
