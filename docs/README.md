@@ -1,7 +1,7 @@
 # sdl-commons
 
-[![Kotlin](https://img.shields.io/badge/kotlin-1.9.10-%237F52FF.svg?style=flat-square&logo=kotlin&logoColor=white)](http://kotlinlang.org)
-[![Gradle](https://img.shields.io/badge/Gradle-8.3.0-02303A.svg?style=flat-square&logo=Gradle&logoColor=white)](https://gradle.org/)
+[![Kotlin](https://img.shields.io/badge/kotlin-2.1.10-%237F52FF.svg?style=flat-square&logo=kotlin&logoColor=white)](http://kotlinlang.org)
+[![Gradle](https://img.shields.io/badge/Gradle-8.13-02303A.svg?style=flat-square&logo=Gradle&logoColor=white)](https://gradle.org/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)](http://www.apache.org/licenses/LICENSE-2.0)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/SDLMoe/sdl-commons/ci.yml?event=push&style=flat-square&logo=github)](https://github.com/SDLMoe/sdl-commons/actions)
 
