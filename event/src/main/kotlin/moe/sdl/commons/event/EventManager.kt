@@ -18,18 +18,13 @@ private val logger = LoggerFactory.getLogger(EventManager::class.java)
 /**
  * Thread-safe EventManager
  */
-class EventManager(
-  private var eventScope: ModuleScope = ModuleScope("EventManager"),
-) {
+class EventManager(private var eventScope: ModuleScope = ModuleScope("EventManager")) {
   private class PriorityEntry(
     val priority: EventPriority,
     val listeners: ConcurrentLinkedQueue<suspend (Event) -> Unit>,
   )
 
-  private class PriorityChannelEntry(
-    val priority: EventPriority,
-    val channel: Channel<Event>,
-  )
+  private class PriorityChannelEntry(val priority: EventPriority, val channel: Channel<Event>)
 
   private val listeners = List(EventPriority.entries.size) {
     PriorityEntry(EventPriority.entries[it], ConcurrentLinkedQueue())
@@ -58,9 +53,8 @@ class EventManager(
    * @param priority optional, set the priority of this listener
    * @return [Flow]
    */
-  fun flow(priority: EventPriority = EventPriority.NORMAL): Flow<Event> {
-    return flowListeners.first { it.priority == priority }.channel.receiveAsFlow()
-  }
+  fun flow(priority: EventPriority = EventPriority.NORMAL): Flow<Event> =
+    flowListeners.first { it.priority == priority }.channel.receiveAsFlow()
 
   /**
    * Register a parallel listener.

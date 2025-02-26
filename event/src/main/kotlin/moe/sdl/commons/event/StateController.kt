@@ -91,9 +91,7 @@ open class StateController<S, I : WithState<S>, C>(
   /**
    * Get current instance state
    */
-  fun getStateInstance(): I {
-    return currentState.get()
-  }
+  fun getStateInstance(): I = currentState.get()
 
   /**
    * Transfer state from current state to specified state

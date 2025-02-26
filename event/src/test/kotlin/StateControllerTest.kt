@@ -55,13 +55,9 @@ class StateControllerTest {
       Cry,
     )
 
-    fun foobar(): String {
-      return stateController.getStateInstance().foobar()
-    }
+    fun foobar(): String = stateController.getStateInstance().foobar()
 
-    fun barfoo(): String {
-      return stateController2.getStateInstance().barfoo()
-    }
+    fun barfoo(): String = stateController2.getStateInstance().barfoo()
 
     object Happy : ClassB {
 
@@ -92,9 +88,7 @@ class StateControllerTest {
 
       override val state: ClassA.State = ClassA.State.START
 
-      override fun foobar(): String {
-        return "Start!"
-      }
+      override fun foobar(): String = "Start!"
 
       override suspend fun endState() {
         count.getAndIncrement()
@@ -106,9 +100,7 @@ class StateControllerTest {
 
       override val state: ClassA.State = ClassA.State.DOING
 
-      override fun foobar(): String {
-        return "Doing!"
-      }
+      override fun foobar(): String = "Doing!"
 
       override suspend fun startState() {
         count.getAndIncrement()
@@ -125,9 +117,7 @@ class StateControllerTest {
 
       override val state: ClassA.State = ClassA.State.END
 
-      override fun foobar(): String {
-        return "End!"
-      }
+      override fun foobar(): String = "End!"
 
       override suspend fun startState() {
         count.getAndIncrement()

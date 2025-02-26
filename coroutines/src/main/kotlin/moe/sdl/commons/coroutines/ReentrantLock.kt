@@ -33,11 +33,7 @@ suspend inline fun <T> Mutex.withReentrantLock(owner: Any? = null, crossinline a
 }
 
 @JvmInline
-value class ReentrantMutexContextElement(
-  override val key: ReentrantMutexContextKey,
-) : CoroutineContext.Element
+value class ReentrantMutexContextElement(override val key: ReentrantMutexContextKey) : CoroutineContext.Element
 
 @JvmInline
-value class ReentrantMutexContextKey(
-  val mutex: Mutex,
-) : CoroutineContext.Key<ReentrantMutexContextElement>
+value class ReentrantMutexContextKey(val mutex: Mutex) : CoroutineContext.Key<ReentrantMutexContextElement>
