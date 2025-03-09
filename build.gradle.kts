@@ -11,7 +11,7 @@ installGitHooks()
 
 allprojects {
   group = "moe.sdl.commons"
-  version = "0.4.0"
+  version = "0.5.0"
   repositories {
     mavenCentral()
     google()
