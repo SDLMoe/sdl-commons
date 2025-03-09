@@ -11,7 +11,7 @@ This library requires Java 21+ and Kotlin 2.1+.
 
 ## Usage
 
-[![Maven Central](https://img.shields.io/maven-central/v/moe.sdl.commons/commons-all.svg?style=flat-square)](https://central.sonatype.com/search?q=g%3Amoe.sdl.commons&smo=true)
+[![Maven Central](https://img.shields.io/maven-central/v/moe.sdl.commons/all.svg?style=flat-square)](https://central.sonatype.com/search?q=g%3Amoe.sdl.commons&smo=true)
 
 Edit `build.gradle.kts` like so, replace `<latest-version>` with the latest version (see the badge above):
 
