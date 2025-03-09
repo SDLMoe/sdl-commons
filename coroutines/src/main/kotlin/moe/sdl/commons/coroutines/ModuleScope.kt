@@ -29,23 +29,32 @@ typealias ExceptionHandler = (ctx: CoroutineContext, e: Throwable, logger: Logge
 open class ModuleScope(
   private val moduleName: String = "UnnamedModule",
   parentContext: CoroutineContext = EmptyCoroutineContext,
-  dispatcher: CoroutineDispatcher = Dispatchers.Default,
-  exceptionHandler: ExceptionHandler = { _, e, _, _ ->
+  dispatcher: CoroutineDispatcher? = Dispatchers.Default,
+  exceptionHandler: ExceptionHandler? = { _, e, _, _ ->
     logger.atError().setCause(e).log { "Caught Exception on $moduleName" }
   },
 ) : CoroutineScope {
 
   val parentJob = SupervisorJob(parentContext[Job])
 
-  override val coroutineContext: CoroutineContext =
-    parentContext + parentJob + CoroutineName(moduleName) + dispatcher +
-      CoroutineExceptionHandler { context, e ->
-        exceptionHandler(context, e, logger, moduleName)
-      }
+  override val coroutineContext: CoroutineContext = run {
+    var ctx = parentContext + parentJob + CoroutineName(moduleName)
+    dispatcher?.let { ctx = ctx.plus(it) }
+    exceptionHandler?.let { handler ->
+      ctx = ctx.plus(CoroutineExceptionHandler { context, e ->
+        handler(context, e, logger, moduleName)
+      })
+    }
+    ctx
+  }
 
   fun dispose() {
     parentJob.cancel()
     onClosed()
+  }
+
+  fun subscope(name: String): ModuleScope {
+    return ModuleScope("$moduleName.$name", coroutineContext, null, null)
   }
 
   open fun onClosed() {
