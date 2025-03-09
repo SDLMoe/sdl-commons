@@ -18,27 +18,27 @@ Edit `build.gradle.kts` like so, replace `<latest-version>` with the latest vers
 ```kotlin
 dependencies {
   // BOM for aligning versions to prevent potential problems
-  implementation(platform("moe.sdl.commons:commons-bom:<latest-version>"))
+  implementation(platform("moe.sdl.commons:bom:<latest-version>"))
   //             ^ this is important, please don't forget to call
   // see: https://docs.gradle.org/current/userguide/platforms.html
 
   // Add a certain module, see modules below 
-  implementation("moe.sdl.commons:commons-event")
+  implementation("moe.sdl.commons:event")
 
   // Or simply, add all modules as dependencies
-  implementation(platform("moe.sdl.commons:commons-all"))
+  implementation(platform("moe.sdl.commons:all"))
 }
 ```
 
 ## Modules
 
-| Module                   | Description                                                  |
-|--------------------------|--------------------------------------------------------------|
-| `commons-bom`            | Special module, BOM, apply version constraints               |
-| `commons-all`            | Special module, add all modules as dependencies              |
-| `commons-coroutines`     | Extensions of `kotlinx.coroutines`, e.g. `ModuleScope`       |
-| `commons-event`          | Event System and State Machine based on `kotlinx.coroutines` |
-| `commons-logger-logback` | Extensions of Logback, e.g. `PatternLayoutNoLambda`          |
+| Module           | Description                                                  |
+|------------------|--------------------------------------------------------------|
+| `bom`            | Special module, BOM, apply version constraints               |
+| `all`            | Special module, add all modules as dependencies              |
+| `coroutines`     | Extensions of `kotlinx.coroutines`, e.g. `ModuleScope`       |
+| `event`          | Event System and State Machine based on `kotlinx.coroutines` |
+| `logger-logback` | Extensions of Logback, e.g. `PatternLayoutNoLambda`          |
 
 ## License
 
