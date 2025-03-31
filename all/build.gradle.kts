@@ -1,10 +1,6 @@
 plugins {
-  `java-platform`
+  `java-library`
   id("sdl-commons-publish")
-}
-
-javaPlatform {
-  allowDependencies()
 }
 
 dependencies {

@@ -1,13 +1,13 @@
 # sdl-commons
 
-[![Kotlin](https://img.shields.io/badge/kotlin-2.1.10-%237F52FF.svg?style=flat-square&logo=kotlin&logoColor=white)](http://kotlinlang.org)
+[![Kotlin](https://img.shields.io/badge/kotlin-2.1.20-%237F52FF.svg?style=flat-square&logo=kotlin&logoColor=white)](http://kotlinlang.org)
 [![Gradle](https://img.shields.io/badge/Gradle-8.13-02303A.svg?style=flat-square&logo=Gradle&logoColor=white)](https://gradle.org/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)](http://www.apache.org/licenses/LICENSE-2.0)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/SDLMoe/sdl-commons/ci.yml?event=push&style=flat-square&logo=github)](https://github.com/SDLMoe/sdl-commons/actions)
 
 SDL's common libraries for Kotlin development.
 
-This library requires Java 21+ and Kotlin 2.1+.
+This library requires Java 21+ and Kotlin 2+.
 
 ## Usage
 
@@ -26,7 +26,7 @@ dependencies {
   implementation("moe.sdl.commons:event")
 
   // Or simply, add all modules as dependencies
-  implementation(platform("moe.sdl.commons:all"))
+  implementation("moe.sdl.commons:all")
 }
 ```
 
