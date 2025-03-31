@@ -41,9 +41,11 @@ open class ModuleScope(
     var ctx = parentContext + parentJob + CoroutineName(moduleName)
     dispatcher?.let { ctx = ctx.plus(it) }
     exceptionHandler?.let { handler ->
-      ctx = ctx.plus(CoroutineExceptionHandler { context, e ->
-        handler(context, e, logger, moduleName)
-      })
+      ctx = ctx.plus(
+        CoroutineExceptionHandler { context, e ->
+          handler(context, e, logger, moduleName)
+        },
+      )
     }
     ctx
   }
@@ -53,9 +55,7 @@ open class ModuleScope(
     onClosed()
   }
 
-  fun subscope(name: String): ModuleScope {
-    return ModuleScope("$moduleName.$name", coroutineContext, null, null)
-  }
+  fun subscope(name: String): ModuleScope = ModuleScope("$moduleName.$name", coroutineContext, null, null)
 
   open fun onClosed() {
   }
